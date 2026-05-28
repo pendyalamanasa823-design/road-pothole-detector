@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pothole Detection - Analyze Road Images</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/detection.css') }}">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-icon">🚗</span>
+                <span>Pothole Detector</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/detect" class="nav-link active">Detect</a></li>
+                <li><a href="/dashboard" class="nav-link">Dashboard</a></li>
+                <li><a href="/about" class="nav-link">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Detection Section -->
+    <section class="detection-container">
+        <div class="container">
+            <h1>Pothole Detection</h1>
+            
+            <div class="detection-grid">
+                <!-- Upload Section -->
+                <div class="upload-section glassmorphism">
+                    <h2>Upload Image/Video</h2>
+                    
+                    <div class="tab-buttons">
+                        <button class="tab-btn active" data-tab="upload">Upload File</button>
+                        <button class="tab-btn" data-tab="webcam">Webcam</button>
+                    </div>
+
+                    <!-- Upload Tab -->
+                    <div class="tab-content active" id="upload-tab">
+                        <div class="upload-area" id="uploadArea">
+                            <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M12 2v20m10-10H2" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            <p>Drag & drop your image or video here</p>
+                            <span>or</span>
+                            <label class="upload-label">
+                                Click to browse
+                                <input type="file" id="fileInput" accept="image/*,video/*" hidden>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Webcam Tab -->
+                    <div class="tab-content" id="webcam-tab">
+                        <div class="webcam-container">
+                            <video id="webcamVideo" width="100%" height="auto" autoplay playsinline></video>
+                            <button class="btn btn-primary" id="captureBtn">Capture Frame</button>
+                        </div>
+                    </div>
+
+                    <!-- File Info -->
+                    <div class="file-info" id="fileInfo" style="display: none;">
+                        <p><strong>File:</strong> <span id="fileName"></span></p>
+                        <p><strong>Size:</strong> <span id="fileSize"></span></p>
+                    </div>
+                </div>
+
+                <!-- Preview Section -->
+                <div class="preview-section glassmorphism">
+                    <h2>Preview</h2>
+                    <div class="preview-container" id="previewContainer">
+                        <p class="placeholder">Preview will appear here</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detection Button -->
+            <div class="detection-action">
+                <button class="btn btn-primary btn-large" id="detectBtn" disabled>
+                    Detect Potholes
+                </button>
+            </div>
+
+            <!-- Loading Spinner -->
+            <div class="loading-spinner" id="loadingSpinner" style="display: none;">
+                <div class="spinner"></div>
+                <p>Processing your image...</p>
+            </div>
+
+            <!-- Results Section -->
+            <div class="results-section" id="resultsSection" style="display: none;">
+                <div class="results-header">
+                    <h2>Detection Results</h2>
+                    <button class="btn btn-secondary" id="resetBtn">New Detection</button>
+                </div>
+
+                <div class="results-grid">
+                    <!-- Statistics -->
+                    <div class="stats-card glassmorphism">
+                        <h3>Statistics</h3>
+                        <div class="stat-item">
+                            <label>Total Potholes:</label>
+                            <span class="stat-value" id="totalPotholes">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <label>Average Confidence:</label>
+                            <span class="stat-value" id="avgConfidence">0%</span>
+                        </div>
+                        <div class="stat-item">
+                            <label>Severity:</label>
+                            <span class="stat-value" id="severity">Low</span>
+                        </div>
+                    </div>
+
+                    <!-- Processed Image -->
+                    <div class="processed-image-card glassmorphism">
+                        <h3>Processed Image</h3>
+                        <img id="processedImage" src="" alt="Processed result">
+                        <a class="btn btn-secondary" id="downloadBtn" download>
+                            ⬇️ Download Result
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Detections List -->
+                <div class="detections-list glassmorphism">
+                    <h3>Detected Potholes</h3>
+                    <div class="detections-table" id="detectionsTable">
+                        <!-- Table will be populated here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 AI-Powered Road Pothole Detection System</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/detection.js') }}"></script>
+</body>
+</html>
