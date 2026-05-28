@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Road Pothole Detector - AI-Powered Detection System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-icon">🚗</span>
+                <span>Pothole Detector</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="/" class="nav-link active">Home</a></li>
+                <li><a href="/detect" class="nav-link">Detect</a></li>
+                <li><a href="/dashboard" class="nav-link">Dashboard</a></li>
+                <li><a href="/about" class="nav-link">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="particles" id="particles"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                AI-Powered Road <span class="gradient-text">Pothole Detection</span>
+            </h1>
+            <p class="hero-subtitle">
+                Automatically detect and analyze potholes in road images using advanced computer vision technology
+            </p>
+            <div class="hero-buttons">
+                <a href="/detect" class="btn btn-primary">Start Detection</a>
+                <a href="#features" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Key Features</h2>
+            <div class="features-grid">
+                <div class="feature-card glassmorphism">
+                    <div class="feature-icon">📸</div>
+                    <h3>Image Upload</h3>
+                    <p>Upload high-quality road images for instant pothole detection</p>
+                </div>
+                <div class="feature-card glassmorphism">
+                    <div class="feature-icon">🎥</div>
+                    <h3>Video Analysis</h3>
+                    <p>Process entire video files to detect potholes frame by frame</p>
+                </div>
+                <div class="feature-card glassmorphism">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Accurate Detection</h3>
+                    <p>AI-powered algorithm with high accuracy and confidence scores</p>
+                </div>
+                <div class="feature-card glassmorphism">
+                    <div class="feature-icon">📊</div>
+                    <h3>Analytics Dashboard</h3>
+                    <p>View comprehensive statistics and detection history</p>
+                </div>
+                <div class="feature-card glassmorphism">
+                    <div class="feature-icon">📹</div>
+                    <h3>Live Webcam</h3>
+                    <p>Real-time detection from your webcam stream</p>
+                </div>
+                <div class="feature-card glassmorphism">
+                    <div class="feature-icon">⬇️</div>
+                    <h3>Download Results</h3>
+                    <p>Export processed images with detection highlights</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack Section -->
+    <section class="tech-stack">
+        <div class="container">
+            <h2 class="section-title">Technologies Used</h2>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <span class="tech-name">Python Flask</span>
+                </div>
+                <div class="tech-item">
+                    <span class="tech-name">OpenCV</span>
+                </div>
+                <div class="tech-item">
+                    <span class="tech-name">HTML5/CSS3</span>
+                </div>
+                <div class="tech-item">
+                    <span class="tech-name">JavaScript</span>
+                </div>
+                <div class="tech-item">
+                    <span class="tech-name">NumPy</span>
+                </div>
+                <div class="tech-item">
+                    <span class="tech-name">Pillow</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Detect Potholes?</h2>
+            <p>Upload your road images or videos and let AI do the work</p>
+            <a href="/detect" class="btn btn-primary">Get Started Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 AI-Powered Road Pothole Detection System. All rights reserved.</p>
+            <p>Built with ❤️ for smart infrastructure maintenance</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
